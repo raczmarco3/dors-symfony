@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>SIM Cards</h1>
+    {% if simForm is defined %}
+        {{ form(simForm) }}
+
+        <a href="/simcards" class="pageButton">Back</a>
+        {% if save is defined %}
+            <div class="msg">New SIM is added successfully!</div>
+        {% endif %}
+    {% else %}
+        <div class="tableHolder">
+            <table id="contentTable">
+                <tr>
+                    <th>ID</th>
+                    <th>PhoneID</th>
+                    <th>Slot</th>
+                    <th>MobileNumber</th>
+                    <th>IMSI</th>
+                    <th>Expiration</th>
+                    <th>MobilnetExpiration</th>
+                    <th>MobilnetDataLimit</th>
+                    <th>MobilnetIP</th>
+                    <th>CarrierID</th>
+                    <th>Package</th>
+                    <th>TypeID</th>
+                    <th>Activated</th>
+                    <th>Comment</th>
+                    <th>Creator</th>
+                    <th>Created</th>
+                    <th>Updater</th>
+                    <th>Updated</th>
+                </tr>
+                {% for simCard in simCards %}
+                    <tr>
+                    <td>{{simCard.id}}</td>
+                    <td>{{simCard.PhoneID}}</td>
+                    <td>{{simCard.Slot}}</td>
+                    <td>{{simCard.MobileNumber}}</td>
+                    <td>{{simCard.IMSI}}</td>
+                    <td>{{simCard.Expiration|date('Y-m-d H:i:s')}}</td>
+                    <td>{{simCard.MobilnetExpiration|date('Y-m-d H:i:s')}}</td>
+                    <td>{{simCard.MobilnetDataLimit}}</td>
+                    <td>{{simCard.MobilnetIP}}</td>
+                    <td>{{simCard.CarrierID}}</td>
+                    <td>{{simCard.Package}}</td>
+                    <td>{{simCard.TypeID}}</td>
+                    <td>{{simCard.Activated}}</td>
+                    <td>{{simCard.Comment}}</td>
+                    <td>{{simCard.Creator}}</td>
+                    <td>{{simCard.Created|date('Y-m-d H:i:s')}}</td>
+                    <td>{{simCard.Updater}}</td>
+                    <td>{{simCard.Updated|date('Y-m-d H:i:s')}}</td>
+                    </tr>
+                {% endfor %}
+        </table>
+    </div>
+    <a href="/simcards/addnew" class="pageButton">Add New SIM Card</a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Device and Operator Registration System</title>
+        <style>
+            body,html{width:100%;height:100%;margin:0;padding:0}.container,.site{overflow:auto}
+            @media screen and (min-width:601px){.menu a,.pageButton{text-decoration:none}.container{width:100%;height:100%}
+            .menu{width:150px;position:fixed;top:0;bottom:0;background-color:#404040;height:100%}.menu ul{margin-top:15px;padding:0}
+            .menu li{list-style-type:none;padding:8px;text-align:center;color:#fff}.menu ul>li{background-color:#069;cursor:default;
+            margin-bottom:10px;padding:15px}.menu a li:hover{background-color:#595959}.site{margin-left:150px;padding:20px}
+            input[type=date],input[type=number],input[type=text],select{width:100%;padding:10px 15px;margin:8px 0;border:1px solid #ccc;
+            box-sizing:border-box}input[type=submit]{width:100%;background-color:#005580;color:#fff;padding:15px 20px;margin:8px 0;
+            border:none;cursor:pointer;border-radius:5px}.pageButton{padding:15px;background-color:#6495ed;color:#fff;margin-left:20px;
+            margin-right:15px;float:left}.msg{margin:14px;font-style:oblique;font-weight:700;font-size:large}
+            .site form{width:75%;margin:0 auto}}@media screen and (max-width:600px){.menu a,.pageButton{text-decoration:none}html{font-size:small}
+            .menu{width:100%;background-color:#404040}.menu ul{margin-top:5px;padding:0}.menu li{list-style-type:none;padding:8px;text-align:center;
+            color:#fff}.menu ul>li{background-color:#069;cursor:default;margin-bottom:10px;padding:15px}.menu a li:hover{background-color:#595959}
+            .site{padding:5px}input[type=date],input[type=number],input[type=text],select{width:100%;padding:3px 5px;margin:4px 0;
+            border:1px solid #ccc;box-sizing:border-box}input[type=submit]{width:100%;background-color:#005580;color:#fff;padding:8px 12px;
+            margin:6px 0;border:none;cursor:pointer;border-radius:5px}.pageButton{padding:7px;background-color:#6495ed;color:#fff;margin-left:10px;
+            margin-right:10px;float:left}.msg{margin:5px;font-style:oblique;font-weight:700;font-size:large}}label{font-weight:700}
+            table{border-collapse:collapse;border-spacing:0;width:100%;border:1px solid #ddd}td,th{text-align:center;padding:8px}
+            tr:nth-child(2n){background-color:#f2f2f2}.tableHolder{overflow-x:auto;margin-bottom:30px}.pageButton:hover{background-color:#4881ea}
+            input[type=submit]:hover{background-color:#046} button{width:100%;background-color: #005580;color: white;padding: 15px 20px;margin: 8px 0;
+            border: none; cursor: pointer; border-radius: 5px;} button:hover{background-color: #004466;}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="menu">
+                <ul>
+                    <li>Admin Page</li>
+                    <a href="/"><li>Home</li></a>
+                    <a href="/types"><li>Types</li></a>
+                    <a href="/simcards"><li>Sim Cards</li></a>
+                </ul>
+            </div>
+            <div class="site">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+    </body>
+</html>

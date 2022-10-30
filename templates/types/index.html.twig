@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Types</h1>
+{% if typeForm is defined %}
+    
+    {{ form(typeForm) }}
+    
+    <script>
+        var html = '';        
+        html = html + '<option value="raktáron van">Raktáron van</option>';
+        html = html + '<option value="kiszállítás folyamatban">Kiszállítás folyamatban</option>';
+        html = html + '<option value="partnernél van, de még nincs üzemben">Partnernél van, de még nincs üzemben</option>';
+        html = html + '<option value="szervizben van">Szervizben van</option>';
+        html = html + '<option value="ellopták">Ellopták</option>';
+        html = html + '<option value="elveszett">Elveszett</option>';
+        html = html + '<option value="üzemben van">Üzemben van</option>';
+        types_form_Name.innerHTML = (html);
+        function showData() {
+            var value = document.getElementById("types_form_Group_").value;
+            var html = '';
+
+            if(value == 1) {
+                html = '';
+                html = html + '<option value="raktáron van">Raktáron van</option>';
+                html = html + '<option value="kiszállítás folyamatban">Kiszállítás folyamatban</option>';
+                html = html + '<option value="partnernél van, de még nincs üzemben">Partnernél van, de még nincs üzemben</option>';
+                html = html + '<option value="szervizben van">Szervizben van</option>';
+                html = html + '<option value="ellopták">Ellopták</option>';
+                html = html + '<option value="elveszett">Elveszett</option>';
+                html = html + '<option value="üzemben van">Üzemben van</option>';            
+            } else  if(value == 2) {
+                html = '';
+                html = html + '<option value="megvették, de még nincs üzemben">Megvették, de még nincs üzemben</option>';
+                html = html + '<option value="készülékben van">Készülékben van</option>';
+            }         
+            types_form_Name.innerHTML = (html);
+        }
+    </script>
+    <a href="/types" class="pageButton">Back</a>
+    {% if save is defined %}
+        <div class="msg">New type is added successfully!</div>
+    {% endif %}
+{% else %}
+    <div class="tableHolder">
+    <table id="contentTable">
+        <tr>
+            <th>ID</th>
+            <th>Group</th>
+            <th>Name</th>
+            <th>Comment</th>
+            <th>Created</th>
+            <th>Updated</th>
+        </tr>
+        {% for type in types %}
+            <tr>
+            <td>{{type.id}}</td>
+            <td>{{type.group}}</td>
+            <td>{{type.name}}</td>
+            <td>{{type.comment}}</td>
+            <td>{{type.created|date('Y-m-d H:i:s')}}</td>
+            <td>{{type.updated|date('Y-m-d H:i:s')}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <a href="/types/addnew" class="pageButton">Add New Type</a>
+{% endif %}
+{% endblock %}

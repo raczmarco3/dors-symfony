@@ -1,0 +1,23 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+show_add_new_type_form:
+    path: /types/addnew
+    controller: App\Controller\TypesController::addNewType
+
+show_types:
+    path: /types
+    controller: App\Controller\TypesController::index
+
+show_add_new_sim_form:
+    path: /simcards/addnew
+    controller: App\Controller\SimCardsController::addNewSim
+
+show_simcards:
+    path: /simcards
+    controller: App\Controller\SimCardsController::index
+
+show_main_page:
+    path: /
+    controller: App\Controller\MainController::index
